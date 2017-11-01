@@ -3,4 +3,28 @@ Start
         double firstNumber = 0
         double secondNumber = 0
 
-    Input 
+    Output "Enter first number: "
+    Input firstNumber
+    Ouput "Enter second number: "
+    Input secondNumber
+
+    Output computePercent(firstNumber, secondNumber)
+
+    Output computePercent(secondNumber, firstNumber)
+
+Stop
+
+----
+
+public static string computePercent(double firstNumber, double secondNumber) {
+
+    double percent = 0
+    string finalString = ""
+
+    percent = (firstNumber / secondNumber) * 100
+
+    finalString = firstNumber + " is " + percent + " percent of " + secondNumber
+
+    return finalString
+
+}
