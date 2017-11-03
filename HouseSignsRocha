@@ -1,0 +1,58 @@
+Start
+
+    Declarations
+        string orderNumber = ""
+        string name = ""
+        string woodType = ""
+        string colorOfCharacters = ""
+        int numberOfCharacters = 0
+ 
+    Output "Enter order number: "
+    Input orderNumber
+    Output "Enter customer's name: "
+    Input name
+    Output "Enter wood type: "
+    Input woodType
+    Output "Enter number of characters: "
+    Input numOfCharacter
+    Output "Enter color of characters: "
+    Input colorOfCharacters
+
+    Output "Order Number :" + orderNumber
+    Output "Name :" + name
+    Output "Type of wood: " + woodType
+    Output "Color of characters chosen: " + colorOfCharacter
+    Output "Final price: " + computeSignPrice(woodType, numOfCharacter, colorOfCharacters)
+
+Stop
+
+-----
+
+public static int computeSignPrice(string woodType, int numberOfCharacters, string colorOfCharacters) {   
+    final int MIN_CHARGE = 30
+    final int OAK_FEE = 15
+    final int LETTER_THRESHOLD = 6
+    final int ADDITIONAL_CHAR = 3
+    final int GOLD_LEAF_FEE = 12
+    final string SPECIAL_COLOR = "Gold-Leaf"
+    final string SPECIAL_WOOD = "Oak"
+    int finalPrice = 0
+
+    if (numberOfCharacters > LETTER_THRESHOLD)
+        finalPrice = (numberOfCharacters - LETTER_THRESHOLD) * ADDITIONAL_CHAR
+    endif
+
+    if (woodType == SPECIAL_WOOD)
+        finalPrice = finalPrice + OAK_FEE
+    endif
+
+    if (colorOfCharacters == SPECIAL_COLOR)
+        finalPrice = finalPrice + GOLD_LEAF_FEE
+    endif
+
+    if (finalPrice <= MIN_CHARGE)
+        finalPrice = MIN_CHARGE
+    endif
+
+    return finalPrice
+}
